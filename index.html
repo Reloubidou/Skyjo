@@ -4,37 +4,51 @@
   <meta charset="UTF-8">
   <title>Mon Skyjo</title>
   <style>
-    body {
-      font-family: Arial;
-      background: #f6f6f6;
-      text-align: center;
-    }
+  body {
+    font-family: Arial;
+    background: #f6f6f6;
+    text-align: center;
+  }
 
-    .carte {.image-carte {
-  background-image: url('doscarte.png');
-  background-size: cover;
-  background-position: center;
-}
-      width: 100px;
-      height: 140px;
-      background: lightblue;
-      border-radius: 12px;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 40px;
-      margin: 20px;
-      cursor: pointer;
-    }
-  </style>
+  .table {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 30px;
+  }
+
+  .carte {
+    width: 100px;
+    height: 140px;
+    border-radius: 12px;
+    background-size: cover;
+    background-position: center;
+    cursor: pointer;
+  }
+</style>
 </head>
+<script>
+  const cartes = document.querySelectorAll('.carte');
 
+  cartes.forEach(carte => {
+    // au départ : dos de carte
+    carte.style.backgroundImage = "url('/skyjo/doscarte.png')";
+
+    carte.addEventListener('click', () => {
+      const face = carte.getAttribute('data-face');
+      carte.style.backgroundImage = "url('/skyjo/' + face)";
+    });
+  });
+</script>
 <body>
  <body>
-  <h1>Test image</h1>
+  <h1>🃏 Skyjo by Morgane</h1>
 
-  <img src="doscarte.png" width="150">
+  <div class="table">
+    <div class="carte" data-face="-2face.png"></div>
+    <div class="carte" data-face="carte-2.png"></div>
+    <div class="carte" data-face="carte5.png"></div>
+  </div>
 </body>
-
 </body>
 </html>
